@@ -56,7 +56,7 @@ function App() {
     <>
   {/* <Navbar title="TextUtils" aboutText="About TextUtils"/> */}
   {/* <Router> */}
-<Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} />
+<Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} changegreen={changegreen} changeyellow={changeyellow} changered={changered} />
 <Alert alert={alert} />
 <div className="container mt-3">
   {/* <Routes> */}

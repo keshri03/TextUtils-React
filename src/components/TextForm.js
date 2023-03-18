@@ -50,28 +50,31 @@ export default function TextForm(props) {
     return (
         <>
             <div className="container" style={{color: props.mode==='dark'?'white' : '#011827e8'}}>
-                <h1>{props.heading}</h1>
-                <div className="mb-3">
+                <h1 className='mb-4'>{props.heading}</h1>
+                <div className="my-3">
                     <textarea
                         className="form-control"
                         value={text}
                         onChange={handleOnChange}
-                        style={{backgroundColor: props.mode==='dark'?'grey': 'white',color: props.mode==='dark'?'white': '#011827e8'}}
+                        style={{backgroundColor: props.mode==='dark'?'#19596c': 'white',color: props.mode==='dark'?'white': '#011827e8'}}
                         id="myBox"
                         rows="8"
                     ></textarea>
-                    <button className="btn-primary mx-2 my-1" onClick={handleUpclick}>
+
+                    <div className="my-2">
+                    <button  disabled={text.length===0}className="btn btn-primary mx-2 my-1" onClick={handleUpclick}>
                         Convert to uppercase
                     </button>
-                    <button className="btn-primary mx-2 my-1" onClick={handleLoclick}>
+                    <button  disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoclick}>
                         Convert to lowercasecase
                     </button>
-                    <button className="btn-primary mx-2 my-1" onClick={handleclearclick}>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleclearclick}>
                         clear Text
                     </button>
-                    <button className="btn-primary mx-2 my-1" onClick={HandleExtraSpaces}>
+                    <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={HandleExtraSpaces}>
                         Remove Extra Spaces
                     </button>
+                    </div>
                 </div>
             </div>
             <div className="continer my-3" style={{color: props.mode==='dark'?'white' : '#011827e8'}}>
@@ -81,7 +84,7 @@ export default function TextForm(props) {
                 </p>
                 <p>{0.008 * wordCount(text)} Minutes read</p>
                 <h2>Preview</h2>
-                <p>{wordCount(text)>0?text: "Enter something in textbox above to preview here"}</p>
+                <p>{wordCount(text)>0?text: "Nothing to preview"}</p>
             </div>
         </>
     );
